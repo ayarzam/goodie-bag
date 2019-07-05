@@ -1,6 +1,13 @@
 'use strict'
 
 const router = require('express').Router()
+const Candy = require('../db/models/Candy')
+
+router.get('/candies', async(req, res, next) => {
+  const data = await Candy.findAll(req.params)
+  console.log(data)
+  res.send(data)
+})
 
 // Your routes go here!
 // NOTE: Any routes that you put here are ALREADY mounted on `/api`
